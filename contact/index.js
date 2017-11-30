@@ -1,4 +1,4 @@
-const express =require('express')
+const express = require('express')
 const app = express.Router()
 
 var contactList = [
@@ -16,4 +16,10 @@ var contactList = [
     {id: 11, name: 'Petyr Baelish', email: 'petyr@baelishindustries.com', phone: '123-456-7890', url: 'www.google.com', notes: 'Do not trust anyone.'},
   ]
   
+  app.get('/contacts', (req, res) => res.json(contactList))
+  app.get('/contacts/:id', (req, res) => {
+    let d = req.params.id  
+    res.json(contactList[d])
+})
+ 
   module.exports=app
