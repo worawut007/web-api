@@ -1,5 +1,7 @@
 const express =require('express')
 const app = express.Router()
+const bodyParser = require('body-parser')
+app.use(bodyParser.json())
 
 var contactList = [
     {id: 0, name: 'Ned Stark', email: 'ned@winterfell.com', phone: '123-456-7890', url: 'www.google.com', notes: 'Winter is coming.'},
@@ -15,5 +17,13 @@ var contactList = [
     {id: 10, name: 'Brienne of Tarth', email: 'oathkeeper@gmail.com', phone: '123-456-7890', url: 'www.google.com', notes: 'Do not cross her.'},
     {id: 11, name: 'Petyr Baelish', email: 'petyr@baelishindustries.com', phone: '123-456-7890', url: 'www.google.com', notes: 'Do not trust anyone.'},
   ]
-  
+
+  app.get('/contacts',(req,res) => {
+      res.json(contactList)
+  })    
+  app.post('/contacts',(req,res) => {
+    contactList.push(req.body)
+  })
+
   module.exports=app
+
