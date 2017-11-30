@@ -15,5 +15,12 @@ var contactList = [
     {id: 10, name: 'Brienne of Tarth', email: 'oathkeeper@gmail.com', phone: '123-456-7890', url: 'www.google.com', notes: 'Do not cross her.'},
     {id: 11, name: 'Petyr Baelish', email: 'petyr@baelishindustries.com', phone: '123-456-7890', url: 'www.google.com', notes: 'Do not trust anyone.'},
   ]
+  app.delete('/contacts/:id',(req,res)=>{
+    console.log(req.params)
+ 
+        contactList.splice(req.params.id,1)
+    res.json(contactList)
+    
+  })
   
   module.exports=app
