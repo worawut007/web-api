@@ -1,3 +1,3 @@
-const express =require('express');
-const server = express();
-server.listen(8000,()=> console.log("Hello"));
+const express =require('express')
+const server = require('./server')
+server.listen(8000,()=> console.log("Hello"))
