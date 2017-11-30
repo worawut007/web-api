@@ -1,5 +1,7 @@
 const express = require('express')
 const app = express.Router()
+const bodyParser = require('body-parser')
+app.use(bodyParser.json())
 
 var contactList = [
     {id: 0, name: 'Ned Stark', email: 'ned@winterfell.com', phone: '123-456-7890', url: 'www.google.com', notes: 'Winter is coming.'},
@@ -15,7 +17,27 @@ var contactList = [
     {id: 10, name: 'Brienne of Tarth', email: 'oathkeeper@gmail.com', phone: '123-456-7890', url: 'www.google.com', notes: 'Do not cross her.'},
     {id: 11, name: 'Petyr Baelish', email: 'petyr@baelishindustries.com', phone: '123-456-7890', url: 'www.google.com', notes: 'Do not trust anyone.'},
   ]
+<<<<<<< HEAD
+
+  app.get('/contacts',(req,res) => {
+      res.json(contactList)
+  })    
+  app.post('/contacts',(req,res) => {
+    contactList.push(req.body)
+  })
+
+  module.exports=app
+
+=======
+  app.delete('/contacts/:id',(req,res)=>{
+    console.log(req.params)
+ 
+        contactList.splice(req.params.id,1)
+    res.json(contactList)
+    
+  })
   
+<<<<<<< HEAD
   app.get('/contacts', (req, res) => res.json(contactList))
   app.get('/contacts/:id', (req, res) => {
     let d = req.params.id  
@@ -23,3 +45,7 @@ var contactList = [
 })
  
   module.exports=app
+=======
+  module.exports=app
+>>>>>>> 83a6d94c80b3efed5a00c7611b39429fa6620a82
+>>>>>>> dba5893de11b41442f3b11854b2a5620e13ec0e4
