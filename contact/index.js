@@ -17,6 +17,7 @@ var contactList = [
     {id: 10, name: 'Brienne of Tarth', email: 'oathkeeper@gmail.com', phone: '123-456-7890', url: 'www.google.com', notes: 'Do not cross her.'},
     {id: 11, name: 'Petyr Baelish', email: 'petyr@baelishindustries.com', phone: '123-456-7890', url: 'www.google.com', notes: 'Do not trust anyone.'},
   ]
+<<<<<<< HEAD
 
   app.get('/contacts',(req,res) => {
       res.json(contactList)
@@ -27,3 +28,14 @@ var contactList = [
 
   module.exports=app
 
+=======
+  app.delete('/contacts/:id',(req,res)=>{
+    console.log(req.params)
+ 
+        contactList.splice(req.params.id,1)
+    res.json(contactList)
+    
+  })
+  
+  module.exports=app
+>>>>>>> 83a6d94c80b3efed5a00c7611b39429fa6620a82
