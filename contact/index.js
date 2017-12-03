@@ -33,8 +33,13 @@ app.delete('/contacts/:id',(req,res)=>{
     contactList.splice(req.params.id,1)
     res.json(contactList) 
 })
-app.put('/contacts/:id',(req,res)=>{
-    contactList[req.params.id]=req.body
+app.put('/contact/:id',(req,res)=>{
+    for (let i = 0; i < contactList.length; i++) {
+        if(req.params.id == contactList[i].id){
+            contactList[i] = req.body
+            res.json("update success")
+        }
+    }
 })
  
 module.exports=app
