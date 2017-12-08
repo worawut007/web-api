@@ -53,6 +53,7 @@ app.post('/contacts',(req,res) => {
     contactList.push(req.body)
     res.json("add success")
 })
+<<<<<<< HEAD
 
 app.put('/contact/:id',(req,res)=>{
     let flag = true
@@ -80,6 +81,23 @@ app.delete('/contacts/:id',(req,res)=>{
     if(flag){
         res.json("Not found id to delete")
     }
+=======
+app.delete('/contacts/:id',(req,res)=>{
+    for (let i = 0; i < contactList.length; i++) {
+        if(req.params.id == contactList[i].id){
+            contactList.splice(i,1)
+            res.json("delete success")
+        }
+    }
+})
+app.put('/contact/:id',(req,res)=>{
+    for (let i = 0; i < contactList.length; i++) {
+        if(req.params.id == contactList[i].id){
+            contactList[i] = req.body
+            res.json("update success")
+        }
+    }
+>>>>>>> 230e04ab6f5302d06399e3cc7fe19f3d7838b19b
 })
  
 module.exports = app
