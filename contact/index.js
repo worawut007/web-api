@@ -29,9 +29,12 @@ app.post('/contacts',(req,res) => {
     contactList.push(req.body)
 })
 app.delete('/contacts/:id',(req,res)=>{
-    console.log(req.params)
-    contactList.splice(req.params.id,1)
-    res.json(contactList) 
+    for (let i = 0; i < contactList.length; i++) {
+        if(req.params.id == contactList[i].id){
+            contactList.splice(i,1)
+            res.json("delete success")
+        }
+    }
 })
 app.put('/contact/:id',(req,res)=>{
     for (let i = 0; i < contactList.length; i++) {
